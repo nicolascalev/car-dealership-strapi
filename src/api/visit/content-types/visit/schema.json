@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "visits",
+  "info": {
+    "singularName": "visit",
+    "pluralName": "visits",
+    "displayName": "Visit",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "purpose": {
+      "type": "enumeration",
+      "enum": [
+        "maintenance",
+        "fix"
+      ]
+    },
+    "date": {
+      "type": "date"
+    },
+    "car": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::car.car",
+      "inversedBy": "visits"
+    },
+    "mechanic": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::mechanic.mechanic",
+      "inversedBy": "visits"
+    }
+  }
+}
